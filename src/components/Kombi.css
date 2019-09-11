@@ -1,0 +1,102 @@
+.st1{display:inline;fill:#3ABC98;}
+.st2{opacity:0.32;fill:#727171;}
+.st3{fill:#898989;}
+.st4{fill:#FFFFFF;}
+.st5{fill:#C9CACA;}
+.st6{fill:#055c36;}
+.st7{fill: #fbfbf5;}
+.st8{fill:#006437;}
+.st9{fill:#006437;stroke: #fbfbf5;stroke-width:2;stroke-miterlimit:10;}
+.st10{fill:none;stroke:#DEDCC9;stroke-width:2;stroke-miterlimit:10;}
+.st11{fill:#BDE6E3;}
+.st12{fill: #fbfbf5;}
+.st13{fill:none;stroke:#595757;stroke-width:3;stroke-miterlimit:10;}
+.st14{fill:none;stroke:#F9F8DE;stroke-miterlimit:10;}
+.st15{fill:#DEDCC9;stroke:#DEDCC9;stroke-width:2;stroke-miterlimit:10;}
+.st16{fill:#C96031;stroke:#F9F8DE;stroke-width:2;stroke-miterlimit:10;}
+
+#wrapper {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    transform: rotateY(180deg) translate(0, 25%);
+}
+
+#car-body {
+    position: absolute;
+    width: 100%;
+    bottom: 27px;
+    animation: carbody 1s linear infinite;
+    -webkit-animation: carbody 1s linear infinite;
+}
+
+#wheel .wheel {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+}
+    
+#wheel .wheel-back {
+    z-index: -1;
+}
+
+#smoke {
+    width: 8px;
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    animation: smoke 1.2s linear infinite;
+    -webkit-animation: smoke 1s linear infinite;
+}
+
+#shadow {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    z-index: -2;
+}
+/***** Animation *****/
+
+@keyframes carbody {
+    0% {
+        bottom: 27px;
+    }
+    60% {
+        bottom: 30px;
+    }
+    80% {
+        bottom: 32px;
+    }
+}
+@-webkit-keyframes carbody {
+    0% {
+        bottom: 27px;
+    }
+    60% {
+        bottom: 30px;
+    }
+    80% {
+        bottom: 32px;
+    }
+}
+
+@keyframes smoke {
+    from {
+        right: 30px;
+    }
+    to {
+        right: -80px;
+        transform: scale(5);
+        opacity: .2;
+    }
+}
+@-webkit-keyframes smoke {
+    from {
+        right: 30px;
+    }
+    to {
+        right: -80px;
+        transform: scale(5);
+        opacity: .2;
+    }
+}

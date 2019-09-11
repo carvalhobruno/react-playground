@@ -1,4 +1,8 @@
 import React from 'react';
+import firebase from "../helpers/firebase";
+import { toast } from 'react-toastify';
+import Kombi from "./Kombi";
+
 import useForm from "../helpers/useForm";
 import loginIcon from "../assets/login-icon.svg"
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,7 +17,7 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'center',
       flexWrap: 'wrap',
       backgroundColor: '#fff',
-      minHeight: 500,
+      minHeight: 460,
       width: "90%",
       maxWidth: "500px",
       borderRadius: 6,
@@ -28,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     },
     button: {
         display: "block",
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(2.5),
         width: "80%",
         padding: theme.spacing(1.5)
     },
@@ -60,13 +64,20 @@ const Login = (props) => {
 
     const { state, disable, handleOnChange, handleOnSubmit } = useForm(formSchema, validateSchema, login)
 
+
     function login() {
-        props.history.push('/solicitacoes')
+        firebase.auth().signInWithEmailAndPassword(state.email.value, state.password.value)
+            .then((success) => {
+                console.log('yey', success);
+                props.history.push('/solicitacoes')
+            }, (error) => {
+                toast.error("Algo deu errado, tente novamente!");
+            })
     }
 
     return (
         <form className={classes.container} onSubmit={handleOnSubmit} noValidate>
-            <img className={classes.img} src={loginIcon}/>
+            <Kombi />
             <TextField className={classes.textField} label="e-mail" type="email" name="email" onChange={handleOnChange} value={state.email.value} required />
             <TextField className={classes.textField} label="senha" type="password" name="password" onChange={handleOnChange} value={state.password.value} required />
             <Button className={classes.button} variant="contained" color="primary" type="submit" disabled={disable}>Entrar</Button>

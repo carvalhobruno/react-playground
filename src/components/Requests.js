@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import database from "../helpers/firebase";
+import { database } from "../helpers/firebase";
 
 const Requests = (props) => {
   const [requests, setRequests] = useState([]);

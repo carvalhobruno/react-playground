@@ -6,10 +6,19 @@ import Requests from './components/Requests';
 import './App.css';
 import { baseURLAPI } from "./helpers/api";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+  // Call it once in your app. At the root of your app is the best place
+  toast.configure({
+    autoClose: 8000,
+    draggable: false,
+    hideProgressBar: true
+  })
+
+
 function App() {
   const AppStyle = styled.div`
-
-    // background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
     display: flex;
